@@ -5,7 +5,6 @@ export const updateProduct=(id:string,data:any)=>api.put(`/products/${id}`,data)
 export const getAllOrders=()=>api.get(`/orders`); //admin route
 export const getAllUsers=()=>api.get(`/auth/users`); //admin route
 
-//export const getProductsByCategory = (slug: string) =>api.get(`/products?category=${slug}`);
 export const getProductsByCategory = async (params: any) => {
   return await api.get("/products", { params });
 };
