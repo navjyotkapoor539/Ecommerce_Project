@@ -1,6 +1,6 @@
 import express from 'express';
 import { register,login,logout,refreshAccessToken, getMe, getAllUsers } from '../controllers/authController.js';
-import { adminOnly, protect } from '../middleware/authMiddleware.js';
+import { adminOnly, protect } from '../middleware/authMiddleWare.js';
 const router = express.Router();
 
 router.post('/register', register);
