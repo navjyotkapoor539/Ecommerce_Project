@@ -109,7 +109,7 @@ export function Navbar() {
             <Link href="/cart" className="relative">
               <ShoppingCart className="h-5 w-5" />
               <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
-                3
+                {cartCount}
               </span>
             </Link>
           </Button>
@@ -160,6 +160,10 @@ export function Navbar() {
                       <Link href="/admin">Admin Dashboard</Link>
                     </Button>
                   )}
+                   <Link href="/profile" className="flex items-center gap-1">
+                  <User className="h-4 w-4" />
+                  {user?.name}
+                </Link>
                   <Button variant="ghost" onClick={handleLogout} className="w-full">
                     Logout
                   </Button>

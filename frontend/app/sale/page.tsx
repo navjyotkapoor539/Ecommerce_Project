@@ -133,14 +133,6 @@ export default function SalePage() {
                       <ShoppingCart size={18} />
                       <span>Add to Cart</span>
                     </button>
-
-                    <Link
-                      href={`/product/${product._id}`}
-                      className="text-center text-primary font-semibold hover:underline text-sm flex items-center justify-center gap-1"
-                    >
-                      View Details
-                      <ArrowRight size={16} />
-                    </Link>
                   </div>
                 </div>
               );
