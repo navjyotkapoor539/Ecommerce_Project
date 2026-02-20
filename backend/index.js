@@ -18,7 +18,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://ecommerce-project-5j11.vercel.app/",
     credentials: true,
   })
 );
