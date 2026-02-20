@@ -17,7 +17,7 @@ const setAccessTokenCookie = (res, token) => {
   res.cookie("accessToken", token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
+    sameSite: "none",
     maxAge: 15 * 60 * 1000, // 15 minutes
   });
 };
@@ -27,7 +27,7 @@ const setRefreshTokenCookie = (res, token) => {
   const cookieOpts = {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
+    sameSite: "none",
     path: "/api/auth/refresh",
     maxAge: 30 * 24 * 60 * 60 * 1000,
   };
@@ -38,7 +38,7 @@ const clearRefreshTokenCookie = (res) => {
   res.cookie(Refresh_Token_Cookie_Name, "", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
+    sameSite: "none",
     path: "/api/auth/refresh",
     expires: new Date(0),
   });
