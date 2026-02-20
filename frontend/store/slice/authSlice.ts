@@ -1,6 +1,6 @@
 import { createSlice,createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../lib/axios";
-//import { setAccessToken,clearAccessToken } from "@/lib/token";
+import { setAccessToken,clearAccessToken } from "@/lib/token";
 
 type User={
     _id:string,
@@ -33,7 +33,7 @@ export const login =createAsyncThunk("auth/login",async( data: { email: string; 
     thunkAPI)=>{
         try {
       const res=await api.post("/auth/login", data);
-      //setAccessToken(res.data.accessToken)
+      setAccessToken(res.data.accessToken)
       const me = await api.get("/auth/me");
       return me.data;
     } catch (err: any) {
@@ -43,7 +43,7 @@ export const login =createAsyncThunk("auth/login",async( data: { email: string; 
 
 export const logout = createAsyncThunk("auth/logout", async () => {
   await api.post("/auth/logout");
-  //clearAccessToken();
+  clearAccessToken();
 });
 
 const authSlice=createSlice({
