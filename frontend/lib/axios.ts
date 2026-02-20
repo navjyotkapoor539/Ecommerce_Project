@@ -1,7 +1,8 @@
 import axios from "axios";
 import {getAccessToken,setAccessToken,clearAccessToken} from "./token";
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const api = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: API_URL,
   withCredentials: true,
 });
 
@@ -21,7 +22,7 @@ async(error)=>{
     originalRequest._retry=true;
     try {
       //hit refresh token api
-      const res=await axios.post("http://localhost:5000/api/auth/refresh",{},{
+      const res=await axios.post(`${API_URL}/api/auth/refresh`,{},{
         withCredentials:true
       });
       setAccessToken(res.data.accessToken);
